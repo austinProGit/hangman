@@ -29,7 +29,7 @@ body {
   }
 
   .rules-container {
-    max-width: 300px;
+    max-width: 400px;
     min-width: 250px;
     box-shadow: 3px 3px 3px 3px gray;
     border-radius: 10px;
@@ -74,7 +74,33 @@ body {
     border-right: none;
     border-left: none;
     margin-left: 10px;
-    color: transparent;
-    font-size: 0px;
+    /* color: transparent; */
+    /* font-size: 0px; */
     min-width: 25px;
+}
+
+#letter-entry-prompt {
+  font-size: 22px;
+  text-shadow: var(--text-shadow);
+  text-align: center;
+  /* margin-right: 10px; */
+  margin-left: 35px;
+}
+
+#guess {
+  max-width: 30px;
+  border-radius: 5px;
+}
+
+.guessed-letter {
+  font-size: 20px;
+  display: inline;
+  margin-right: 5px;
+}
+
+#guessed-letters-label {
+  font-size: 22px;
+  text-shadow: var(--text-shadow);
+  text-align: center;
+  margin-top: 50px;
 }

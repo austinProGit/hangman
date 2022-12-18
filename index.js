@@ -33,23 +33,47 @@ let wordAndDashHandler = () => {
     removeAllChildNodes(dashesDiv);
     for (let char in randWord) {
         const newDash = document.createElement('button');
-        const newDashValue = document.createTextNode(randWord[char]);
         newDash.setAttribute("class", "dash");
-        newDash.appendChild(newDashValue);
         dashesDiv.appendChild(newDash);
     }
     return randWord;
 }
 const btn = document.getElementById('generate-word-btn').addEventListener('click', wordAndDashHandler);
-
+const guessedLettersList = [];
 let guessHandler = () => {
     const randWord = document.getElementById('letter-dashes-container').getAttribute('randWord');
     const guess = document.getElementById('guess').value;
+    const guessedLettersListContainer = document.getElementById('guessed-letters-list');
     if (guess !== '') {
-        if (randWord.includes(guess)) {
-            console.log(`The letter ${guess} is in ${randWord}`)
-        } else {
-            console.log(`The letter ${guess} is not in ${randWord}`)
+        if (!guessedLettersList.includes(guess)) {
+            guessedLettersList.push(guess);
+            guessedLettersList.sort();
+            if (randWord.includes(guess)) {
+                console.log(`The letter ${guess} is in ${randWord}`)
+                let indices = [];
+                for (let i = 0; i < randWord.length; i ++) {
+                    if (randWord[i] === guess) {
+                        indices.push(i);
+                    }
+                }
+                const dashesDiv = document.getElementById('letter-dashes-container');
+                let children = dashesDiv.childNodes;
+                children.forEach((child, index) => {
+                    if (indices.includes(index)) {
+                      child.innerHTML = guess;
+                    }
+                  });
+            } else {
+                console.log(`The letter ${guess} is not in ${randWord}`)
+            }
+        }
+        removeAllChildNodes(guessedLettersListContainer);
+        for (let letter in guessedLettersList) {
+            const newLetterListItem = document.createElement('li');
+            const newLetterValue = document.createTextNode(guessedLettersList[letter]);
+            newLetterListItem.setAttribute('class', 'guessed-letter');
+            newLetterListItem.appendChild(newLetterValue);
+            guessedLettersListContainer.appendChild(newLetterListItem);
         }
     }
 }

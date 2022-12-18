@@ -33,9 +33,10 @@
         </div>
         <div class="letter-guess-container">
             <form action="">
-                <label for="guess">Enter a letter</label>
+                <label id="letter-entry-prompt" for="guess">Enter a letter</label>
                 <input type="text" id="guess" name="guess" maxlength="1">
             </form>
+            <p id="guessed-letters-label">Guessed letters: <ul id="guessed-letters-list"></ul></p>
         </div>
     </main>
     <script src="index.js"></script>
