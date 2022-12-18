@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <header class="title-container">
+        <h1 class="title">Hangman</h1>
+    </header>
+    <main class="main-container">
+        <div class="rules-container">
+            <h2>Game Rules</h2>
+            <ol>
+                <li>Click the 'Generate Word' button to generate a new word.</li>
+                <li>The word is represented by a row of dashes, representing each letter of the 
+                    word.</li>
+                <li>Try to guess the letters that make up the word.</li>
+                <li>Every correct guess will be added to the word's dashes... Every incorrect guess 
+                    brings you closer to the gallows!</li>
+            </ol>
+        </div>
+        <div class="canvas-btn-dashes-container">
+            <div class="canvas-container">
+                <canvas width="320" height="320"></canvas>
+            </div>
+            <div id="letter-dashes-container" class="letter-dashes-container">
+            </div>
+            <button id="generate-word-btn" class="generate-word-btn">Generate Word</button>
+        </div>
+        <div class="letter-guess-container">
+            <form action="">
+                <label for="guess">Enter a letter</label>
+                <input type="text" id="guess" name="guess" maxlength="1">
+            </form>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
