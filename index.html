@@ -11,8 +11,8 @@
     <header class="title-container">
         <h1 class="title">Hangman</h1>
     </header>
-    <main class="main-container">
-        <div class="rules-container">
+    <main id="main-container">
+        <div id="rules-container">
             <h2>Game Rules</h2>
             <ol>
                 <li>Click the 'Generate Word' button to generate a new word.</li>
@@ -29,15 +29,19 @@
             </div>
             <div id="letter-dashes-container" class="letter-dashes-container">
             </div>
-            <button id="generate-word-btn" class="generate-word-btn">Generate Word</button>
+            <label id="dropdown-label" for="dropdown">Select a category:</label>
+            <select id="dropdown">
+            </select>
+            <button id="generate-word-btn" class="generate-word-btn">Generate New Word</button>
         </div>
-        <div class="letter-guess-container">
-            <form action="">
+        <div id="letter-guess-container" class="letter-guess-container">
+            <form autocomplete="off" action="">
                 <label id="letter-entry-prompt" for="guess">Enter a letter</label>
-                <input type="text" id="guess" name="guess" maxlength="1">
+                <input type="text" id="guess" name="guess" maxlength="1" disabled="true">
             </form>
-            <p id="guessed-letters-label">Guessed letters: <ul id="guessed-letters-list"></ul></p>
+            <p id="bad-guesses-label">Bad guesses: <ul id="bad-guesses-list"></ul></p>
         </div>
+        <div id="game-result-message-container"><p id="game-result-message"></p></div>
     </main>
     <script src="index.js"></script>
 </body>
